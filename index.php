@@ -11,8 +11,8 @@
    
    // Check connection
    if (!$connection) {
-   		$message= "Connection failed: " . mysqli_connect_error();
-   		echo "<script>console.log(\"" . addslashes($message) . "\");</script>";
+   		$error_message= "Connection failed: " . mysqli_connect_error();
+   		echo "<script>console.log(\"" . addslashes($error_message) . "\");</script>";
    }
    
    ?>
@@ -25,13 +25,13 @@
          		$coordinator_department=addslashes($_POST['coordinator-form-department']);
          		$coordinator_team=addslashes($_POST['coordinator-form-team']);
          		$coordinator_phone=addslashes($_POST['coordinator-form-phone']);
-         				$_SESSION['message']="Welcome to ECell Family, we will get back to you soon";
+         		$_SESSION['message']="We're extremely happy to know that you want to join our team of talented coordinators! Our team will get back to you shortly!";
          		
          		$Csql = "INSERT INTO coordinators (name, email, phone, department, post) VALUES ('$coordinator_name','$coordinator_email','$coordinator_phone','$coordinator_department','$coordinator_team')";
          		if (mysqli_query($connection, $Csql)) {
          		} else {
-         		    $message= "Connection failed: " . mysqli_connect_error();
-         			echo "<script>console.log(\"" . addslashes($message) . "\");</script>";
+         		    $error_message= "Connection failed: " . mysqli_connect_error();
+         			echo "<script>console.log(\"" . addslashes($error_message) . "\");</script>";
          		} 
          }
          
@@ -42,13 +42,14 @@
          		$member_institute=addslashes($_POST['member-form-college']);
          		$member_pass=addslashes($_POST['member-form-pass']);
          		$member_phone=addslashes($_POST['member-form-phone']);
-         		$_SESSION['message']="Welcome to ECell Family, we will keep you informed";
+         		$_SESSION['message']="You just signed up to be well-informed about the great things we do at the Jadavpur University E-Cell!<br>
+Ideate. Innovate. Build!";
          		
          		$Msql = "INSERT INTO subscribe (name, email, phone, college, department, passyear) VALUES ('$member_name','$member_email','$member_phone','$member_institute','$member_department','$member_pass')";
          		if (mysqli_query($connection, $Msql)) {
          		} else {
-         		    $message= "Connection failed: " . mysqli_connect_error();
-         			echo "<script>console.log(\"" . addslashes($message) . "\");</script>";		
+         		    $error_message= "Connection failed: " . mysqli_connect_error();
+         			echo "<script>console.log(\"" . addslashes($error_message) . "\");</script>";		
          			}
          }
          
@@ -58,7 +59,7 @@
          //		$contact_institute=addslashes($_POST['contact-form-college']);
          		$contact_message=addslashes($_POST['contact-form-message']);
          		$contact_phone=addslashes($_POST['contact-form-phone']);
-         			$_SESSION['message']="For contacting us, we will get back to you soon";
+         			$_SESSION['message']="We're extremely happy to see your interest in the Jadavpur University E-Cell! Our team will get back to you shortly!";
          		
          		$Csql = "INSERT INTO contact (name, email, phone, message) VALUES ('$contact_name','$contact_email','$contact_phone','$contact_message')";
          		if (mysqli_query($connection, $Csql)) {
@@ -71,7 +72,7 @@
       <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
       <link rel="stlyesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <link rel="stylesheet" type="text/css" href="assets/style.css?nocached">
+      <link rel="stylesheet" type="text/css" href="assets/style.css?noached">
       <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Bowlby+One+SC|Changa+One|Neuton|Archivo+Black|Scada|Changa+One|Anton" rel="stylesheet">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <script src="js/modernizr.custom.js"></script>
@@ -481,27 +482,7 @@
 		<div class="container-contact">
          <div class="container-form">
             <div id="contact-form">
-               <form action="#contact-form" method="post">
-                  <h1>Contact Us</h1>
-                  <ul id="contact-form-body" class="flex-outer" style="display:inline">
-                     <li>                        
-                        <input type="text" name="contact-form-name" placeholder="Name">
-                     </li>
-                     <li>                        
-                        <input type="email" name="contact-form-email" placeholder="Email">
-                     </li>
-                     <li>                       
-                        <input type="tel" name="contact-form-phone" placeholder="Mobile Number">
-                     </li>
-                     <li>                        
-                        <textarea rows="6" name="contact-form-message" placeholder="Your Message"></textarea>
-                     </li>
-                     <li>
-                        <input type="submit" name="contact-form-submit" value="Submit" />
-                     </li>
-                  </ul>
-                  <span id="contact-form-ty" style="display:none">Thank you for reaching us, we will get back to you soon.</span>
-               </form>
+             
             </div>
          </div>
          <div class="container-map" style="margin-left:0;padding-right:0">
@@ -513,7 +494,7 @@
 		</div>
 		
 		<div class="container-fluid ">
-		            <div class="col-md-12" id="home-gallery" style="text-align:center">
+		            <div  id="home-gallery" style="text-align:center">
                <div>
                   <h1 style="color: black ;font-family: 'Changa One', cursive; text-align:center"> Gallery </h1>
                   <hr>
@@ -708,8 +689,115 @@
                </div>
                <script type="text/javascript">jssor_1_slider_init();</script>
             </div>
-			<div class="container-fluid ">
-					<!-- Testinomial-->
+			<div id="testinomial" class="container-fluid">
+			        <div class="roww">
+            <div class="col-md-12">
+			<h1 style="color: black ;font-family: 'Changa One', cursive; text-align:center"> Testinomial </h1>
+                <div class="carousel slide" data-ride="carousel" id="testinomial-quote-carousel">
+				
+                    <!-- Carousel Slides / Quotes -->
+                    <div class="carousel-inner text-center">
+                        <!-- Quote 1 -->
+                        <div class="item active">
+                            <blockquote>
+                                <div class="row">
+                                    <div class="col-sm-10 col-sm-offset-1">
+                                        <p style="padding-left:30px">To any entrepreneur: if you want to do it, do it now. If you don’t, you’re going to regret it. Do Or do not. There is no try.It’s not about ideas. It’s about making ideas happen.I congratulate to all those students who made rigorous efforts to make this idea of an Entrepreneurship Cell in Jadavpur University come to life.</p>
+                                        <small><b>Prof. Surjayan Sen</b><br>VC JU</small>
+                                    </div>
+                                </div>
+                            </blockquote>
+                        </div>
+                        <!-- Quote 2 -->
+                        <div class="item">
+                            <blockquote>
+                                <div class="row">
+                                    <div class="col-sm-10 col-sm-offset-1">
+                                        <p style="padding-left:30px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                                        <small>Someone famous</small>
+                                    </div>
+                                </div>
+                            </blockquote>
+                        </div>
+                        <!-- Quote 3 -->
+                        <div class="item">
+                            <blockquote>
+                                <div class="row">
+                                    <div class="col-sm-10 col-sm-offset-1">
+                                        <p style="padding-left:30px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. .</p>
+                                        <small>Someone famous</small>
+                                    </div>
+                                </div>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <!-- Bottom Carousel Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#testinomial-quote-carousel" data-slide-to="0" class="active"><img class="img-responsive " src="https://s3.amazonaws.com/uifaces/faces/twitter/mantia/128.jpg" alt="">
+                        </li>
+                        <li data-target="#testinomial-quote-carousel" data-slide-to="1"><img class="img-responsive" src="https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg" alt="">
+                        </li>
+                        <li data-target="#testinomial-quote-carousel" data-slide-to="2"><img class="img-responsive" src="https://s3.amazonaws.com/uifaces/faces/twitter/brad_frost/128.jpg" alt="">
+                        </li>
+                    </ol>
+
+                    <!-- Carousel Buttons Next/Prev -->
+                    <a data-slide="prev" href="#testinomial-quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
+                    <a data-slide="next" href="#testinomial-quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+<style>
+#testinomial-quote-carousel {
+    padding: 0 10px 30px 10px;
+    margin-top: 60px;
+}
+#testinomial-quote-carousel .carousel-control {
+    background: none;
+    color: #CACACA;
+    font-size: 2.3em;
+    text-shadow: none;
+    margin-top: 30px;
+}
+#testinomial-quote-carousel .carousel-indicators {
+    position: relative;
+    right: 50%;
+    top: auto;
+    bottom: 0px;
+    margin-top: 20px;
+    margin-right: -19px;
+}
+#testinomial-quote-carousel .carousel-indicators li {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    opacity: 0.4;
+    overflow: hidden;
+    transition: all .4s ease-in;
+    vertical-align: middle;
+}
+#testinomial-quote-carousel .carousel-indicators .active {
+    width: 128px;
+    height: 128px;
+    opacity: 1;
+    transition: all .2s;
+}
+#testinomial .item blockquote {
+    border-left: none;
+    margin: 0;
+}
+#testinomial .item blockquote p:before {
+    content: "\f10d";
+    font-family: 'Fontawesome';
+    float: left;
+    margin-right: 10px;
+}
+
+</style>
+
 
 			</div>
 			<div class="container-fluid" style="background-color:#1f2930">
@@ -958,7 +1046,6 @@
       </div>
       <!-- Modal content for member ends-->
 
-		<a href="javascript:void(0);" id="scroll" title="Scroll to Top" style="display: none;"><span></span></a>
       <script type="text/javascript">
          $(window).load(function() {
                          function showhead(){
@@ -972,15 +1059,6 @@
                      });
       </script>
       <script type="text/javascript">
-         // Sticky Header
-         $(window).scroll(function() {
-         
-             if ($(window).scrollTop() > 100) {
-                 $('.main_h').addClass('sticky');
-             } else {
-                 $('.main_h').removeClass('sticky');
-             }
-         });
          
          // Mobile Navigation
          $('.mobile-toggle').click(function() {
@@ -1204,7 +1282,6 @@
       <script src="js/cssParser.js"></script>
       <script src="js/css-filters-polyfill.js"></script>
       <?php 
-         echo $_SESSION['message'];
          if(strlen($_SESSION['message'])!=0){
          	echo "<script>
          	function button4ty(){
